@@ -3,9 +3,13 @@ package arrays001;
 import java.util.Scanner;
 
 public class Aplicacion {
+	
 
 	public Aplicacion() {
 		int opcion = -1;
+		int array1[]={7,8,4,1,2};
+		int array2[]= {1,2,4,7,8};
+		System.out.println(Ejemplos.estaOrdenadoAscendentemente(array2));
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");

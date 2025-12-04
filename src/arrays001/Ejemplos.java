@@ -4,7 +4,16 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public abstract class Ejemplos {
+	
+	public static boolean DEPURACION=true;
 
+	/**
+	 * Genera un número aleatorio entre el mínimo y el máximo (no incluido).
+	 * [minimo,maximo).
+	 * @param minimo Número mínimo a generar
+	 * @param maximo Número máximo no incluido
+	 * @return
+	 */
 	public static int generarNumeroAleatorio(int minimo, int maximo) {
 		/*
 		 * int resultadoFinal;
@@ -93,11 +102,58 @@ public abstract class Ejemplos {
 	/**
 	 * Imprimir seis números aleatorios entre el 1 y el 49 no repetidos.
 	 */
-	public static void imprimirApuestaLoteria() {}
+	public static void imprimirApuestaLoteria() {
+		int apuestas[]=new int[6];
+		for(int i=0;i<apuestas.length;i++) {
+			int numeroAleatorio=generarNumeroAleatorio(1,50);
+			while(Ejemplos.existeNumero(numeroAleatorio, apuestas)) {
+				imprimirTraza("Número repetido: "+numeroAleatorio);
+				numeroAleatorio=generarNumeroAleatorio(1,50);
+			}
+			apuestas[i]=numeroAleatorio;
+		}
+		Ejemplos.imprimirArrayEnteros(apuestas);	
+	}
+	
+	public static boolean existeNumero(int n, int array[]) {
+		boolean existe=false;
+		for(int i=0;i<array.length;i++) {
+			if(array[i]==n) {
+				existe=true;
+				break;
+			}				
+		}
+		return existe;
+	}
+	
+	public static boolean estaOrdenadoAscendentemente(int array[]) {
+		boolean estaOrdenado=true;
+		for(int i=0;i<array.length-1;i++) {
+			imprimirTraza("Comparando array["+i+"] con array["+(i+1)+"]");
+			if(esMayor(array[i],array[i+1])) {
+				imprimirTraza(array[i]+" es mayor que "+array[i+1]);
+				estaOrdenado=false;
+				break;
+			}
+		}
+		return estaOrdenado;
+	}
+	
+	public static boolean esMayor(int a, int b) {
+		if(a>b)
+			return true;
+		else
+			return false;
+	}
 	
 	public static int[] ordenarArrayEnteros(int arrayEnteros[]) {
 		int arrayOrdenado[]=new int[arrayEnteros.length];
 		return arrayOrdenado;
+	}
+	
+	public static void imprimirTraza(String mensaje) {
+		if(DEPURACION==true)
+			System.out.println("[TRAZA] "+mensaje);
 	}
 
 }
