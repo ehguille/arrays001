@@ -195,9 +195,30 @@ public abstract class Ejemplos {
 		return arrayEnteros;
 	}
 	
+	//Suponemos que el array está ordenado
+	public static int[] introducirEntero(int entero,int[] array) {
+		imprimirTraza("Array inicial: "+arrayEnterosToString(array));
+		int arrayFinal[]=new int[array.length+1];
+		//Lo hacemos la semana que viene
+		imprimirTraza("Array final: "+arrayEnterosToString(arrayFinal));
+		return arrayFinal;
+	}
+	
 	public static void imprimirTraza(String mensaje) {
 		if(DEPURACION==true)
 			System.out.println("[TRAZA] "+mensaje);
 	}
 
 }
+
+/*
+ * Por hacer:
+Devolver la suma de todos los elementos de un array.
+Devolver la media aritmética de todos los elementos de un array.
+Devolver la moda (el valor más repetido) de todos los elementos de un array.
+Invertir un array (1,2,3 pasa a ser 3,2,1).
+Devolver la varianza de los elementos de un array.
+Eliminar todos los elementos repetidos de un array (1,2,2,3,4,4 pasa a ser 1,2,3,4.
+Eliminar el elemento "i" de un array y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
+El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
+ */
