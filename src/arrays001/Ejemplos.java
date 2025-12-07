@@ -221,4 +221,5 @@ Devolver la varianza de los elementos de un array.
 Eliminar todos los elementos repetidos de un array (1,2,2,3,4,4 pasa a ser 1,2,3,4.
 Eliminar el elemento "i" de un array y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
 El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
+Hacer un módulo que imprima el menor número de monedas necesario para devolver una cantidad dada. 
  */
