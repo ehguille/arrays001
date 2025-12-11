@@ -209,13 +209,147 @@ public abstract class Ejemplos {
 			System.out.println("[TRAZA] "+mensaje);
 	}
 
+	public static int suma(int[] array) {
+		int resultado=0;
+		for(int i=0;i<array.length;i++)
+			resultado+=array[i];
+		return resultado;
+	}
+	
+	public static int media(int[] array) {
+		int sumatorio=0;
+		for(int i=0;i<array.length;i++)
+			sumatorio+=array[i];
+		return sumatorio/array.length;
+		//return suma(array)/array.length;
+	}
+	
+	public static int moda(int[] array) {
+		int valorActual=0;
+		int numeroRepeticionesActual=0;
+		int valorModa=0;
+		int numeroRepeticionesModa=0;
+		for(int i=0;i<array.length;i++) {
+			valorActual=array[i];
+			numeroRepeticionesActual=0;
+			for(int j=0;j<array.length;j++) {
+				if(valorActual==array[j])
+					numeroRepeticionesActual++;
+			}
+			if(numeroRepeticionesActual>numeroRepeticionesModa) {
+				numeroRepeticionesModa=numeroRepeticionesActual;
+				valorModa=valorActual;
+			}
+		}
+		return valorModa;
+	}
+	
+	public static void devolverCambio(int precioCentimos, int importePagadoCentimos) {
+		int cambio=importePagadoCentimos-precioCentimos;
+		int billetes500=0;
+		int billetes200=0;
+		int billetes100=0;
+		int billetes50=0;
+		int billetes20=0;
+		int billetes10=0;
+		int billetes5=0;
+		int monedas200=0;
+		int monedas100=0;
+		int monedas050=0;
+		int monedas020=0;
+		int monedas010=0;
+		int monedas005=0;
+		int monedas002=0;
+		int monedas001=0;
+		while(cambio>0) {
+			if(cambio>=50000) {
+				billetes500++;
+				cambio=cambio-50000;
+			}
+			else if(cambio>=20000) {
+				billetes200++;
+				cambio=cambio-20000;
+			}
+			else if(cambio>=10000) {
+				billetes100++;
+				cambio=cambio-10000;
+			}
+			else if(cambio>=5000) {
+				billetes50++;
+				cambio=cambio-5000;
+			}
+			else if(cambio>=2000) {
+				billetes20++;
+				cambio=cambio-2000;
+			}
+			else if(cambio>=1000) {
+				billetes10++;
+				cambio=cambio-1000;
+			}
+			else if(cambio>=500) {
+				billetes5++;
+				cambio=cambio-500;
+			}
+			else if(cambio>=200) {
+				monedas200++;
+				cambio=cambio-200;
+			}
+			else if(cambio>=100) {
+				monedas100++;
+				cambio=cambio-100;
+			}
+			else if(cambio>50) {
+				monedas050++;
+				cambio=cambio-50;
+			}
+			else if(cambio>=20) {
+				monedas020++;
+				cambio=cambio-20;
+			}
+			else if(cambio>=10) {
+				monedas010++;
+				cambio=cambio-10;
+			}
+			else if(cambio>=05) {
+				monedas005++;
+				cambio=cambio-05;
+			}
+			else if(cambio>=02) {
+				monedas002++;
+				cambio=cambio-02;
+			}
+			else if(cambio>=01) {
+				monedas001++;
+				cambio=cambio-01;
+			}
+		}
+		System.out.println(billetes500);
+		System.out.println(billetes200);
+		System.out.println(billetes100);
+		System.out.println(billetes50);
+		System.out.println(billetes20);
+		System.out.println(billetes10);
+		System.out.println(billetes5);
+		System.out.println(monedas200);
+		System.out.println(monedas100);
+		System.out.println(monedas050);
+		System.out.println(monedas020);
+		System.out.println(monedas010);
+		System.out.println(monedas005);
+		System.out.println(monedas002);
+		System.out.println(monedas001);
+
+	}
+	
+	//Devolver la moda (el valor más repetido) de todos los elementos de un array.
+
 }
+
 
 /*
  * Por hacer:
-Devolver la suma de todos los elementos de un array.
-Devolver la media aritmética de todos los elementos de un array.
-Devolver la moda (el valor más repetido) de todos los elementos de un array.
+
+
 Invertir un array (1,2,3 pasa a ser 3,2,1).
 Devolver la varianza de los elementos de un array.
 Eliminar todos los elementos repetidos de un array (1,2,2,3,4,4 pasa a ser 1,2,3,4.

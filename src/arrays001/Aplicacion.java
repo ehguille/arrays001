@@ -9,8 +9,8 @@ public class Aplicacion {
 		int opcion = -1;
 		int array1[]={7,8,4,1,2};
 		int array2[]= {1,2,4,7,8};
-		int array3[]= {5,4,3,2,-1};
-		Ejemplos.introducirEntero(6, array2);
+		int array3[]= {5,4,3,2,-1,5,2,2,5};
+		Ejemplos.devolverCambio(3273,5000);
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");
