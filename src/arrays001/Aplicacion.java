@@ -9,7 +9,7 @@ public class Aplicacion {
 		int opcion = -1;
 		int[] edades={12,44,1,7};
 		String[] nombres= {"Luisa","María","Fina", "Dolores"};
-		Ejemplos.ordenarPorEdad(nombres, edades);
+		Ejemplos.ordenarPorEdad(nombres,edades);
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");

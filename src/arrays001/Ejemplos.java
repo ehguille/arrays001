@@ -278,7 +278,7 @@ public abstract class Ejemplos {
 	public static void ordenarPorEdad(String[] nombres, int[] edades) {
 		imprimirArrayEnteros(edades);
 		imprimirArrayStrings(nombres);
-		//ordenar
+		// ordenar
 		imprimirArrayEnteros(edades);
 		imprimirArrayStrings(nombres);
 	}
