@@ -245,105 +245,47 @@ public abstract class Ejemplos {
 	}
 	
 	public static void devolverCambio(int precioCentimos, int importePagadoCentimos) {
-		int cambio=importePagadoCentimos-precioCentimos;
-		int billetes500=0;
-		int billetes200=0;
-		int billetes100=0;
-		int billetes50=0;
-		int billetes20=0;
-		int billetes10=0;
-		int billetes5=0;
-		int monedas200=0;
-		int monedas100=0;
-		int monedas050=0;
-		int monedas020=0;
-		int monedas010=0;
-		int monedas005=0;
-		int monedas002=0;
-		int monedas001=0;
-		while(cambio>0) {
-			if(cambio>=50000) {
-				billetes500++;
-				cambio=cambio-50000;
+		int cambioPendiente=importePagadoCentimos-precioCentimos;
+		int[] valores= {50000,20000,10000,5000,2000,1000,500,200,100,50,20,10,5,2,1};
+		int[] numeroMonedas=new int[valores.length];
+		for(int i=0;i<valores.length;i++)
+			while(cambioPendiente>=valores[i]) {
+				cambioPendiente=cambioPendiente-valores[i];
+				numeroMonedas[i]=numeroMonedas[i]+1;
+				imprimirArrayEnteros(valores);
+				imprimirArrayEnteros(numeroMonedas);
+				System.out.println(cambioPendiente);
 			}
-			else if(cambio>=20000) {
-				billetes200++;
-				cambio=cambio-20000;
-			}
-			else if(cambio>=10000) {
-				billetes100++;
-				cambio=cambio-10000;
-			}
-			else if(cambio>=5000) {
-				billetes50++;
-				cambio=cambio-5000;
-			}
-			else if(cambio>=2000) {
-				billetes20++;
-				cambio=cambio-2000;
-			}
-			else if(cambio>=1000) {
-				billetes10++;
-				cambio=cambio-1000;
-			}
-			else if(cambio>=500) {
-				billetes5++;
-				cambio=cambio-500;
-			}
-			else if(cambio>=200) {
-				monedas200++;
-				cambio=cambio-200;
-			}
-			else if(cambio>=100) {
-				monedas100++;
-				cambio=cambio-100;
-			}
-			else if(cambio>50) {
-				monedas050++;
-				cambio=cambio-50;
-			}
-			else if(cambio>=20) {
-				monedas020++;
-				cambio=cambio-20;
-			}
-			else if(cambio>=10) {
-				monedas010++;
-				cambio=cambio-10;
-			}
-			else if(cambio>=05) {
-				monedas005++;
-				cambio=cambio-05;
-			}
-			else if(cambio>=02) {
-				monedas002++;
-				cambio=cambio-02;
-			}
-			else if(cambio>=01) {
-				monedas001++;
-				cambio=cambio-01;
-			}
-		}
-		System.out.println(billetes500);
-		System.out.println(billetes200);
-		System.out.println(billetes100);
-		System.out.println(billetes50);
-		System.out.println(billetes20);
-		System.out.println(billetes10);
-		System.out.println(billetes5);
-		System.out.println(monedas200);
-		System.out.println(monedas100);
-		System.out.println(monedas050);
-		System.out.println(monedas020);
-		System.out.println(monedas010);
-		System.out.println(monedas005);
-		System.out.println(monedas002);
-		System.out.println(monedas001);
 
+	    /*for (int i = 0; i < valores.length; i++) {
+	        cantidades[i] = cambio / valores[i];
+	        cambio %= valores[i];
+	    }*/
 	}
 	
-	//Devolver la moda (el valor más repetido) de todos los elementos de un array.
+	public static void imprimirArrayStrings(String[] array) {
+		String cadena="{";
+		for(int i=0;i<array.length;i++) {
+			cadena+=array[i];
+			if(i<array.length-1)
+				cadena+=",";
+		}
+		cadena+="}";
+		System.out.println(cadena);
+	}
+	
+	//El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
+	public static void ordenarPorEdad(String[] nombres, int[] edades) {
+		imprimirArrayEnteros(edades);
+		imprimirArrayStrings(nombres);
+		//ordenar
+		imprimirArrayEnteros(edades);
+		imprimirArrayStrings(nombres);
+	}
 
 }
+
+	
 
 
 /*
@@ -354,5 +296,4 @@ Invertir un array (1,2,3 pasa a ser 3,2,1).
 Devolver la varianza de los elementos de un array.
 Eliminar todos los elementos repetidos de un array (1,2,2,3,4,4 pasa a ser 1,2,3,4.
 Eliminar el elemento "i" de un array y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
-El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
  */

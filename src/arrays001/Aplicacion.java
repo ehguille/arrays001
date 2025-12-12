@@ -7,10 +7,9 @@ public class Aplicacion {
 
 	public Aplicacion() {
 		int opcion = -1;
-		int array1[]={7,8,4,1,2};
-		int array2[]= {1,2,4,7,8};
-		int array3[]= {5,4,3,2,-1,5,2,2,5};
-		Ejemplos.devolverCambio(3273,5000);
+		int[] edades={12,44,1,7};
+		String[] nombres= {"Luisa","María","Fina", "Dolores"};
+		Ejemplos.ordenarPorEdad(nombres, edades);
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");
