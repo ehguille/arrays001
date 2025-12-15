@@ -14,7 +14,7 @@ public class Aplicacion {
 		volteable[3]=null;
 		volteable[5]=null;
 		Ejemplos.imprimirArrayStrings(volteable);
-		Ejemplos.imprimirArrayStrings(Ejemplos.voltearArray(volteable));
+		Ejemplos.imprimirArrayStrings(Ejemplos.comprimir(volteable));
 		
 		do {
 			Scanner s = new Scanner(System.in);

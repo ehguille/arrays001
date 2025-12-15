@@ -301,6 +301,25 @@ public abstract class Ejemplos {
 		}
 		return a;	
 	}
+	
+	public static String[] comprimir(String[] a) {
+		while(!estaComprimido(a)) {
+			for(int i=0;i<a.length-1;i++) {
+				if(a[i]==null) {
+					a[i]=a[i+1];
+					a[i+1]=null;
+				}
+			}
+		}
+		return a;
+	}	
+
+	public static boolean estaComprimido(String[] a) {
+		for(int i=0;i<a.length-1;i++)
+			if(a[i]==null&&a[i+1]!=null)
+				return false;
+		return true;
+	}
 
 }
 
