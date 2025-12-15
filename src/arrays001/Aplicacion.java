@@ -8,8 +8,14 @@ public class Aplicacion {
 	public Aplicacion() {
 		int opcion = -1;
 		int[] edades={12,44,1,7};
+		String[] volteable={"A","B","C","D","E","F","G","H"};
 		String[] nombres= {"Luisa","María","Fina", "Dolores"};
-		Ejemplos.ordenarPorEdad(nombres,edades);
+		//Ejemplos.ordenarPorEdad(nombres,edades);
+		volteable[3]=null;
+		volteable[5]=null;
+		Ejemplos.imprimirArrayStrings(volteable);
+		Ejemplos.imprimirArrayStrings(Ejemplos.voltearArray(volteable));
+		
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");

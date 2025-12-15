@@ -282,6 +282,25 @@ public abstract class Ejemplos {
 		imprimirArrayEnteros(edades);
 		imprimirArrayStrings(nombres);
 	}
+	
+	//	Invertir un array (1,2,3 pasa a ser 3,2,1).
+	public static int[] voltearArray(int[] a) {
+		for(int i=0;i<a.length/2;i++) {
+			int aux=a[i];
+			a[i]=a[a.length-1-i];
+			a[a.length-1-i]=aux;
+		}
+		return a;
+	}
+	
+	public static String[] voltearArray(String[] a) {
+		for(int i=0;i<a.length/2;i++) {
+			String aux=a[i];
+			a[i]=a[a.length-1-i];
+			a[a.length-1-i]=aux;
+		}
+		return a;	
+	}
 
 }
 
@@ -292,13 +311,7 @@ public abstract class Ejemplos {
  * Por hacer:
 
 
-Invertir un array (1,2,3 pasa a ser 3,2,1).
 Devolver la varianza de los elementos de un array.
-Eliminar todos los elementos repetidos de un array (1,2,2,3,4,4 pasa a ser 1,2,3,4.
-Eliminar el elemento "i" de un array y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
-<<<<<<< HEAD
-=======
-El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
-Hacer un módulo que imprima el menor número de monedas necesario para devolver una cantidad dada. 
->>>>>>> refs/remotes/origin/main
- */
+Eliminar todos los elementos repetidos de un array de enteros positivos (1,2,2,3,4,4 pasa a ser 1,2,3,4) y comprimirlo.
+Eliminar el elemento "i" de un array de enteros positivos y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
+*/
