@@ -7,15 +7,18 @@ public class Aplicacion {
 
 	public Aplicacion() {
 		int opcion = -1;
-		int[] edades={12,44,1,7};
 		String[] volteable={"A","B","C","D","E","F","G","H"};
-		String[] nombres= {"Luisa","María","Fina", "Dolores"};
-		//Ejemplos.ordenarPorEdad(nombres,edades);
-		volteable[3]=null;
-		volteable[5]=null;
-		Ejemplos.imprimirArrayStrings(volteable);
-		Ejemplos.imprimirArrayStrings(Ejemplos.comprimir(volteable));
-		
+		int[] edades={12,44,1,7};
+		String[] nombres= {"Luisa","María","Fina", "Dolores","Manolo"};
+		try {
+			Ejemplos.ordenarPorEdad(nombres,edades);
+		} catch(OrdenacionEdadesException e) {
+			e.printStackTrace();
+			//System.out.println("Revisa los datos de entrada ("+e.getMessage()+")");
+		}
+		double[] dobles= {7,3,5,8,2};
+	//	System.out.println(5/0);
+	//	Ejemplos.eliminarString(nombres, 8);
 		do {
 			Scanner s = new Scanner(System.in);
 			System.out.println("Escoge una opción:");

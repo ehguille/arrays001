@@ -203,11 +203,7 @@ public abstract class Ejemplos {
 		imprimirTraza("Array final: "+arrayEnterosToString(arrayFinal));
 		return arrayFinal;
 	}
-	
-	public static void imprimirTraza(String mensaje) {
-		if(DEPURACION==true)
-			System.out.println("[TRAZA] "+mensaje);
-	}
+
 
 	public static int suma(int[] array) {
 		int resultado=0;
@@ -275,10 +271,25 @@ public abstract class Ejemplos {
 	}
 	
 	//El array "nombres" contiene una serie de nombres, y el array "edades", las edades correspondientes a esos nombres. Ordenar los dos arrays en función de la edad.
-	public static void ordenarPorEdad(String[] nombres, int[] edades) {
+	public static void ordenarPorEdad(String[] nombres, int[] edades) throws OrdenacionEdadesException {
+		if(nombres.length!=edades.length)
+			throw new OrdenacionEdadesException("Los arrays deben tener la misma longitud.");
+		else if(nombres.length<2)
+			throw new OrdenacionEdadesException("Los arrays deben tener tamaño de al menos 2.");
 		imprimirArrayEnteros(edades);
 		imprimirArrayStrings(nombres);
-		// ordenar
+		while(!estaOrdenadoAscendentemente(edades)) {
+			for(int i=0;i<edades.length-1;i++) {
+				//Intercambiamos edades
+				int aux=edades[i+1];
+				edades[i+1]=edades[i];
+				edades[i]=aux;
+				//Intercambiamos nombres
+				String auxNom=nombres[i+1];
+				nombres[i+1]=nombres[i];
+				nombres[i]=auxNom;
+			}
+		}
 		imprimirArrayEnteros(edades);
 		imprimirArrayStrings(nombres);
 	}
@@ -320,17 +331,47 @@ public abstract class Ejemplos {
 				return false;
 		return true;
 	}
+	
+	public static double varianza(double[] array) {
+		imprimirTraza("Calculando la varianza.");
+		double media=media(array);
+		double varianza=0;
+		double auxiliar=0;
+		for(int i=0;i<array.length;i++) {
+			auxiliar+=Math.pow((array[i]-media),2);
+		}
+		varianza=auxiliar/media;
+		imprimirTraza("Varianza="+varianza);
+		return varianza;
+	}
+	
+	public static double media(double[] array) {
+		imprimirTraza("Calculando la media.");
+		double media=0;
+		for(int i=0;i<array.length;i++) {
+			media+=array[i]; // media=media+enteros[i];
+		}
+		media=media/array.length;
+		imprimirTraza("Media="+media);
+		return media;
+	}
+	
+	public static void eliminarString(String[] array, int indice) {
+		//if(indice>=array.length)
+		//	System.out.println("ERROR");
+	//	System.out.println(array[indice]);
+	}
+	
+	public static void imprimirTraza(String mensaje) {
+		if(DEPURACION==true)
+			System.out.println("[TRAZA] "+mensaje);
+	}
+	
 
 }
 
-	
-
-
 /*
  * Por hacer:
-
-
-Devolver la varianza de los elementos de un array.
-Eliminar todos los elementos repetidos de un array de enteros positivos (1,2,2,3,4,4 pasa a ser 1,2,3,4) y comprimirlo.
-Eliminar el elemento "i" de un array de enteros positivos y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
+	Eliminar todos los elementos repetidos de un array de enteros positivos (1,2,2,3,4,4 pasa a ser 1,2,3,4) y comprimirlo.
+	Eliminar el elemento "i" de un array de enteros positivos y "comprimirlo". Si al array 1,4,5,7 le quitamos el elemento 2, nos devolvería un array de 3 posiciones con el contenido 1,4,7.
 */
